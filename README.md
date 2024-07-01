@@ -67,7 +67,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 
 ## Walkthrough Video:
-[Click Here to Watch](https://youtu.be/sv7BrslOOwE?si=ES1h9TzQtAuHhy4f)
+[Click Here to Watch](https://youtu.be/WAKpjsACIIY)
 
 ## Actual Website:
 [Note Nimbus](https://note-nimbus.onrender.com)
