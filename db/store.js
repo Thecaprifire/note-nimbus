@@ -1,6 +1,5 @@
 const util = require('util'); // Importing the 'util' module for utility functions
 const fs = require('fs'); // Importing the 'fs' module for file system operations
-// This package will be used to generate our unique ids. https://www.npmjs.com/package/uuid
 const uuidv1 = require('uuid/v1'); // Importing uuid/v1 package for generating UUIDs
 const readFileAsync = util.promisify(fs.readFile); // Promisifying fs.readFile for asynchronous file reading
 const writeFileAsync = util.promisify(fs.writeFile); // Promisifying fs.writeFile for asynchronous file writing
@@ -9,9 +8,11 @@ class Store {
   read() {
     return readFileAsync('db/db.json', 'utf8'); // Reading 'db/db.json' file asynchronously
   }
+
   write(note) {
     return writeFileAsync('db/db.json', JSON.stringify(note, null, 2)); // Formatting with null and 2 for clarity
   }
+
   getNotes() {
     return this.read().then((notes) => {
       let parsedNotes;
@@ -24,6 +25,7 @@ class Store {
       return parsedNotes; // Returning parsed notes array
     });
   }
+
   addNote(note) {
     const { title, text } = note;
     if (!title || !text) {
@@ -37,11 +39,14 @@ class Store {
       .then((updatedNotes) => this.write(updatedNotes)) // Writing updated notes array to file
       .then(() => newNote); // Returning the newly added note object
   }
+
   removeNote(id) {
     // Get all notes, remove the note with the given id, write the filtered notes
     return this.getNotes()
-      .then((notes) => notes.filter((note) => note.id !== id)) // Filtering out note with specified id
-      .then((filteredNotes) => this.write(filteredNotes)); // Writing filtered notes array to file
+      .then((notes) => {
+        const filteredNotes = notes.filter((note) => note.id !== id); // Filtering out note with specified id
+        return this.write(filteredNotes); // Writing filtered notes array to file
+      });
   }
 }
 
