@@ -1,1 +1,16 @@
-[{"title":"Test Title","text":"Test text"},{"title":"Grocery","text":"Buy the following:\n1. Eggs\n2. Milk\n3. Bread\n","id":"b0b39ad0-37df-11ef-a9ee-8559c19cc807"}]
+[
+  {
+    "title": "Test Title",
+    "text": "Test text"
+  },
+  {
+    "title": "Grocery",
+    "text": "Buy the following:\n1. Eggs\n2. Milk\n3. Bread\n",
+    "id": "b0b39ad0-37df-11ef-a9ee-8559c19cc807"
+  },
+  {
+    "title": "Work Schedule",
+    "text": "Tuesday to Monday",
+    "id": "d7b96c30-37e0-11ef-9b97-ef8158dbc358"
+  }
+]

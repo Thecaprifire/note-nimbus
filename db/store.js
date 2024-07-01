@@ -10,7 +10,7 @@ class Store {
     return readFileAsync('db/db.json', 'utf8'); // Reading 'db/db.json' file asynchronously
   }
   write(note) {
-    return writeFileAsync('db/db.json', JSON.stringify(note)); // Writing JSON stringified 'note' to 'db/db.json' file
+    return writeFileAsync('db/db.json', JSON.stringify(note, null, 2)); // Formatting with null and 2 for clarity
   }
   getNotes() {
     return this.read().then((notes) => {
